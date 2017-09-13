@@ -3,19 +3,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect(url_for('about'))
+    return 'Home page'
 
-@app.route('/hello')
-def about():
-    return 'Hello, World!'
-
-@app.route('/hello/CarloVarese')
-def id1():
-    return 'Hello, CarloVarese'
-
-@app.route('/hello/Oleg')
-def id2():
-    return 'Hello, Oleg'
+@app.route('/<username>')
+def user_page(username):
+    return 'Hello, %s' % username
 
 if __name__ == '__main__':
     app.run()
